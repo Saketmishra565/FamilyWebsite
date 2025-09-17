@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ब्लॉग | हमारा परिवार</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>परिवार की बातें</h1>
+        <nav>
+            <ul>
+                <li><a href="/">होम</a></li>
+                <li><a href="/gallery">गैलरी</a></li>
+                <li><a href="/calendarr">कैलेंडर</a></li>
+                <li><a href="/contacts">कॉन्टैक्ट्स</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>हमारे अपडेट्स और कहानियाँ</h2>
+            <div class="card-container">
+                {% for post in posts %}
+                <div class="card">
+                    <div class="card-content">
+                        <h3>{{ post.title }}</h3>
+                        <p>द्वारा: {{ post.author.username }} | {{ post.created_at|date:"F d, Y" }}</p>
+                        <p>{{ post.content|truncatechars:100 }}</p>
+                        </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 हमारा परिवार। सभी अधिकार सुरक्षित।</p>
+    </footer>
+
+</body>
+</html>

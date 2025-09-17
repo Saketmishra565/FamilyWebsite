@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>हमारी गैलरी | हमारा परिवार</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>हमारे परिवार की गैलरी</h1>
+        <nav>
+            <ul>
+                <li><a href="/">होम</a></li>
+                <li><a href="/blog">ब्लॉग</a></li>
+                <li><a href="/calendarr">कैलेंडर</a></li>
+                <li><a href="/contacts">कॉन्टैक्ट्स</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>हमारी यादें</h2>
+            <div class="card-container">
+                {% for photo in photos %}
+                <div class="card">
+                    <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+                    <div class="card-content">
+                        <h3>{{ photo.title }}</h3>
+                        <p>{{ photo.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 हमारा परिवार। सभी अधिकार सुरक्षित।</p>
+    </footer>
+
+</body>
+</html>

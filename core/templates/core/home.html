@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>होम | हमारा परिवार</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>हमारे परिवार की दुनिया</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'gallery_home' %}">गैलरी</a></li>
+                <li><a href="{% url 'blog_home' %}">ब्लॉग</a></li>
+                <li><a href="{% url 'calendar_home' %}">कैलेंडर</a></li>
+                <li><a href="{% url 'contact_list' %}">कॉन्टैक्ट्स</a></li>
+                <li><a href="{% url 'recipe_list' %}">रेसिपी</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>आपका स्वागत है!</h2>
+            <p>यह हमारे परिवार की प्राइवेट वेबसाइट है। यहाँ आप हमारी यादों को सहेज सकते हैं, एक-दूसरे से जुड़ सकते हैं, और महत्वपूर्ण पलों को साझा कर सकते हैं।</p>
+        </section>
+
+        <section>
+            <h2>वेबसाइट के फीचर्स</h2>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>फोटो और वीडियो गैलरी</h3>
+                        <p>परिवार की तस्वीरें और वीडियो देखें।</p>
+                        <a href="{% url 'gallery_home' %}">गैलरी पर जाएँ</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>फैमिली ब्लॉग</h3>
+                        <p>परिवार के सदस्यों के अपडेट्स पढ़ें और साझा करें।</p>
+                        <a href="{% url 'blog_home' %}">ब्लॉग पर जाएँ</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>कैलेंडर</h3>
+                        <p>जन्मदिन, सालगिरह और महत्वपूर्ण इवेंट्स का ट्रैक रखें।</p>
+                        <a href="{% url 'calendar_home' %}">कैलेंडर पर जाएँ</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>कॉन्टैक्ट बुक</h3>
+                        <p>सभी सदस्यों की संपर्क जानकारी एक ही जगह पर।</p>
+                        <a href="{% url 'contact_list' %}">कॉन्टैक्ट्स पर जाएँ</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>रेसिपी बुक</h3>
+                        <p>परिवार की पसंदीदा रेसिपीज को साझा करें।</p>
+                        <a href="{% url 'recipe_list' %}">रेसिपी पर जाएँ</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 हमारा परिवार। सभी अधिकार सुरक्षित।</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>कॉन्टैक्ट बुक | हमारा परिवार</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .contact-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .contact-card h3 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+        .contact-card p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>फैमिली कॉन्टैक्ट्स</h1>
+        <nav>
+            <ul>
+                <li><a href="/">होम</a></li>
+                <li><a href="/gallery">गैलरी</a></li>
+                <li><a href="/blog">ब्लॉग</a></li>
+                <li><a href="/calendar">कैलेंडर</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>सभी सदस्यों के कॉन्टैक्ट्स</h2>
+            <ul class="contact-list">
+                {% for member in members %}
+                <li class="contact-card">
+                    <h3>{{ member.name }}</h3>
+                    <p><strong>फोन:</strong> {{ member.phone }}</p>
+                    <p><strong>ईमेल:</strong> {{ member.email }}</p>
+                    <p><strong>पता:</strong> {{ member.address }}</p>
+                </li>
+                {% empty %}
+                <li>कोई कॉन्टैक्ट नहीं है।</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 हमारा परिवार। सभी अधिकार सुरक्षित।</p>
+    </footer>
+
+</body>
+</html>

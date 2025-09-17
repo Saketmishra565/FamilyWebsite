@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>रेसिपी बुक | हमारा परिवार</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .recipe-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .recipe-card h3 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+        .recipe-card p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>फैमिली रेसिपीज</h1>
+        <nav>
+            <ul>
+                <li><a href="/">होम</a></li>
+                <li><a href="/gallery">गैलरी</a></li>
+                <li><a href="/blog">ब्लॉग</a></li>
+                <li><a href="/calendar">कैलेंडर</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>हमारी पसंदीदा रेसिपीज</h2>
+            <div class="recipe-grid">
+                {% for recipe in recipes %}
+                <div class="recipe-card">
+                    <h3>{{ recipe.title }}</h3>
+                    <h4>सामग्री:</h4>
+                    <p>{{ recipe.ingredients|linebreaks }}</p>
+                    <h4>निर्देश:</h4>
+                    <p>{{ recipe.instructions|linebreaks }}</p>
+                    <p>द्वारा: {{ recipe.author.username }}</p>
+                </div>
+                {% empty %}
+                <p>कोई रेसिपी नहीं है।</p>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 हमारा परिवार। सभी अधिकार सुरक्षित।</p>
+    </footer>
+
+</body>
+</html>

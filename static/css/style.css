@@ -1,0 +1,119 @@
+/* static/css/style.css */
+
+body {
+    font-family: 'Poppins', sans-serif; /* Google Fonts से एक आकर्षक फॉन्ट */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8; /* हल्का नीला-ग्रे बैकग्राउंड */
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #4CAF50; /* परिवार-थीम वाला हरा रंग */
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #d1e7dd; /* माउस ले जाने पर हल्का रंग */
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+section {
+    background-color: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px; /* किनारों को और गोल करें */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #2c3e50;
+    border-bottom: 3px solid #4CAF50;
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+/* गैलरी और ब्लॉग के कार्ड स्टाइल */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* रेस्पॉन्सिव ग्रिड */
+    gap: 25px;
+    padding-top: 15px;
+}
+
+.card {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden; /* इमेज के बाहर न जाए */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* माउस ले जाने पर ऊपर उठे */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 200px; /* फिक्स हाइट */
+    object-fit: cover; /* इमेज को पूरी तरह फिट करे */
+}
+
+.card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-content h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #34495e;
+}
+
+.card-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #34495e; /* गहरा नीला-ग्रे रंग */
+    color: white;
+    margin-top: 2rem;
+}

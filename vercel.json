@@ -12,5 +12,5 @@
     }
   ],
   "installCommand": "pip install -r requirements.txt",
-  "buildCommand": "python familysite/manage.py collectstatic --noinput"
+  "buildCommand": "python manage.py collectstatic --noinput"
 }

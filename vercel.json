@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "familysite/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "familysite/wsgi.py"
+    }
+  ]
+}

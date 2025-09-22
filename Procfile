@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT familysite.wsgi:application
+web: gunicorn familysite.wsgi:application

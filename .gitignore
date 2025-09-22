@@ -1,0 +1,19 @@
+# Ignore database
+db.sqlite3
+
+# Python files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Env files
+.env
+
+# Virtual env
+venv/
+env/
+
+# Static/media (optional in production)
+staticfiles/
+media/

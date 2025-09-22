@@ -1,5 +1,6 @@
+from decouple import config
 import os
-import dj_database_url
+from dj_database_url import config as db_config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -9,10 +10,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-@^o4&bdeb3u#kwo*$g9lb2*p6u+g4esctfm)-kz(ib(zylc$0@"
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['*']  # Heroku पर सभी होस्ट्स को अनुमति दें
 
@@ -67,10 +68,7 @@ WSGI_APPLICATION = "familysite.wsgi.application"
 # Database
 # Heroku पर डेटाबेस कॉन्फ़िगरेशन
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': db_config(default='sqlite:///db.sqlite3')
 }
 
 # Use Heroku's database URL in production if it exists
@@ -113,6 +111,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),

@@ -10,5 +10,7 @@
       "src": "/(.*)",
       "dest": "familysite/wsgi.py"
     }
-  ]
+  ],
+  "installCommand": "pip install -r requirements.txt",
+  "buildCommand": "python familysite/manage.py collectstatic --noinput"
 }

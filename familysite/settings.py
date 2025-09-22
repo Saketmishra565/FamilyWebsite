@@ -65,17 +65,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "familysite.wsgi.application"
 
-# Database
-# Heroku पर डेटाबेस कॉन्फ़िगरेशन
+# Database configuration for both local and Vercel
+# DATABASES = {
+#     'default': db_config(default='sqlite:///db.sqlite3')
+# }
 DATABASES = {
-    'default': db_config(default='sqlite:///db.sqlite3')
+    'default': db_config()
 }
 
-# Use Heroku's database URL in production if it exists
-if 'DATABASE_URL' in os.environ:
-    DATABASES['default'] = dj_database_url.config(
-        conn_max_age=600, ssl_require=True
-    )
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -127,10 +124,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Heroku-specific settings
-if 'DYNO' in os.environ:
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    SECURE_SSL_REDIRECT = True
-    CSRF_COOKIE_SECURE = True
-    SESSION_COOKIE_SECURE = True
-    DEBUG = False
+# Yahan Heroku specific code hata diya gaya hai.
+# Vercel environment variables apne aap kaam karte hain.

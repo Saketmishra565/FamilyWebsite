@@ -15,7 +15,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['*']  # Heroku पर सभी होस्ट्स को अनुमति दें
+ALLOWED_HOSTS = ['family-website-lovct.vercel.app']
 
 # Application definition
 

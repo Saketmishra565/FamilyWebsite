@@ -63,7 +63,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "familysite.wsgi.application"
+WSGI_APPLICATION = "familysite.wsgi.handler"
 
 # Database configuration for both local and Vercel
 # DATABASES = {

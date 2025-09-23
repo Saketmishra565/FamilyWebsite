@@ -15,7 +15,13 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+# ALLOWED_HOSTS for Vercel deployment
+ALLOWED_HOSTS = ['.vercel.app']
+if DEBUG:
+    ALLOWED_HOSTS += ['*']
+else:
+    # Add your Vercel URL here in production
+    ALLOWED_HOSTS = ['familysite-mkdv.vercel.app']
 
 # Application definition
 
@@ -69,21 +75,21 @@ WSGI_APPLICATION = "familysite.wsgi.handler"
 # DATABASES = {
 #     'default': db_config(default='sqlite:///db.sqlite3')
 # }
+
+# This part needs to be adjusted. It should always use a database URL in production.
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='sqlite:///db.sqlite3',
+        conn_max_age=600,
+        ssl_require=False  # Vercel par iski zaroorat nahi hai agar aap free tier database use kar rahe hain
+    )
 }
 
-# Override with the DATABASE_URL from environment variables for production
 if 'DATABASE_URL' in os.environ:
     DATABASES['default'] = dj_database_url.config(
         conn_max_age=600,
         ssl_require=True
     )
-
-
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
@@ -133,6 +139,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# Yahan Heroku specific code hata diya gaya hai.
-# Vercel environment variables apne aap kaam karte hain.

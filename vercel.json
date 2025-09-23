@@ -4,9 +4,7 @@
       "src": "familysite/wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.11",
-        "launcherType": "gunicorn",
+        "runtime": "python3.12",
         "handler": "familysite.wsgi.application"
       }
     }

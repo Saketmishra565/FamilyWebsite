@@ -1,23 +1,22 @@
 {
   "version": 2,
+  
   "builds": [
     {
       "src": "familysite/wsgi.py",
       "use": "@vercel/python"
     }
   ],
+  
+
   "routes": [
     {
       "src": "/(.*)",
       "dest": "familysite/wsgi.py"
     }
   ],
-  "functions": {
-    "familysite/wsgi.py": {
-      "runtime": "python3.12"
-    }
-  },
+  
+  
   "installCommand": "pip install -r requirements.txt",
   "buildCommand": "python manage.py collectstatic --noinput"
 }
-

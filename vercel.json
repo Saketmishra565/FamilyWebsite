@@ -2,14 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "wsgi.py",
+      "src": "familysite/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "wsgi.py"
+      "dest": "familysite/wsgi.py"
     }
-  ]
+  ],
+  "functions": {
+    "familysite/wsgi.py": {
+      "runtime": "python3.12", // Vercel के नवीनतम Python 3.12 रनटाइम का उपयोग करें
+      "handler": "familysite.wsgi.application" // Django के मुख्य एंट्री पॉइंट को स्पष्ट रूप से सेट करें
+    }
+  },
+  "installCommand": "pip install -r requirements.txt",
+  "buildCommand": "python manage.py collectstatic --noinput"
 }

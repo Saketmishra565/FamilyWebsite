@@ -14,7 +14,7 @@
   ],
   "functions": {
     "familysite/wsgi.py": {
-      "runtime": "python3.12" // 'handler' प्रॉपर्टी हटा दी गई है
+      "runtime": "python3.12"
     }
   },
   "installCommand": "pip install -r requirements.txt",

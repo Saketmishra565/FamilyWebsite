@@ -14,8 +14,8 @@
   ],
   "functions": {
     "familysite/wsgi.py": {
-      "runtime": "python3.12", // Vercel के नवीनतम Python 3.12 रनटाइम का उपयोग करें
-      "handler": "familysite.wsgi.application" // Django के मुख्य एंट्री पॉइंट को स्पष्ट रूप से सेट करें
+      "runtime": "python3.12", 
+      "handler": "familysite.wsgi.application" 
     }
   },
   "installCommand": "pip install -r requirements.txt",

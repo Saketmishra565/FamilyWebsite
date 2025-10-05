@@ -1,12 +1,9 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "familysite/wsgi.py",
-      "use": "@vercel/python",
-      "config": {
-        "runtime": "python3.11",
-        "handler": "familysite.wsgi.application"
-      }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
